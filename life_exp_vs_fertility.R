@@ -1,6 +1,5 @@
 # Import data
 data <- read.csv("C:/Users/hicko/Documents/R exercices/R from A to Z/P2-Section5-Homework-Data.csv", stringsAsFactors = T)
-sss <- file.copy(from = "./life_expectancy_data.R", to=l)
 
 #Additional data: life expectancy
 Country_Code <- c("ABW","AFG","AGO","ALB","ARE","ARG","ARM","ATG","AUS","AUT","AZE","BDI","BEL","BEN","BFA","BGD","BGR","BHR","BHS","BIH","BLR","BLZ","BOL","BRA","BRB","BRN","BTN","BWA","CAF","CAN","CHE","CHL","CHN","CIV","CMR","COG","COL","COM","CPV","CRI","CUB","CYP","CZE","DEU","DJI","DNK","DOM","DZA","ECU","EGY","ERI","ESP","EST","ETH","FIN","FJI","FRA","FSM","GAB","GBR","GEO","GHA","GIN","GMB","GNB","GNQ","GRC","GRD","GTM","GUM","GUY","HKG","HND","HRV","HTI","HUN","IDN","IND","IRL","IRN","IRQ","ISL","ITA","JAM","JOR","JPN","KAZ","KEN","KGZ","KHM","KIR","KOR","KWT","LAO","LBN","LBR","LBY","LCA","LKA","LSO","LTU","LUX","LVA","MAC","MAR","MDA","MDG","MDV","MEX","MKD","MLI","MLT","MMR","MNE","MNG","MOZ","MRT","MUS","MWI","MYS","NAM","NCL","NER","NGA","NIC","NLD","NOR","NPL","NZL","OMN","PAK","PAN","PER","PHL","PNG","POL","PRI","PRT","PRY","PYF","QAT","ROU","RUS","RWA","SAU","SDN","SEN","SGP","SLB","SLE","SLV","SOM","SSD","STP","SUR","SVK","SVN","SWE","SWZ","SYR","TCD","TGO","THA","TJK","TKM","TLS","TON","TTO","TUN","TUR","TZA","UGA","UKR","URY","USA","UZB","VCT","VEN","VIR","VNM","VUT","WSM","YEM","ZAF","COD","ZMB","ZWE")
@@ -21,12 +20,12 @@ data1960 <- data[data$Year==1960,] #187 rows
 data2013 <- data[data$Year==2013,] #187 rows
 
 # Re-order data.2013 index
-rownames(data2013) <- 1:nrow(data2013)
+rownames(data2013) <- NULL
 
 # Checking if additional data Country_Code matches dataset country codes
 # Pursue if there is no difference
-s <- setdiff(Country_Code, data$Country.Code)
-(check <- length(s))
+diff <- setdiff(Country_Code, data$Country.Code)
+(check <- length(diff))
 
 # Creating dataframe for additional data representing Life Expectancy
 lifeExp1960 <- data.frame(Country.Code=Country_Code, Life.Exp=Life_Expectancy_At_Birth_1960, stringsAsFactors = T)
